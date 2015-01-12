@@ -5,7 +5,19 @@ class Triangle
     @side_c = side_c.to_i()
   end
 
-  define_method(:equilateral?) do
-    @side_a == @side_b.&(@side_c)
+  define_method(:triangle_type) do
+
+
+    if (@side_a == @side_b).&(@side_a == @side_c).&(@side_b==@side_c)
+      return "equilateral"
+
+    elsif (@side_a != @side_b).&(@side_a != @side_c).&(@side_b != @side_c)
+      return "scalene"
+
+    else
+      return "isosceles"
+    end
+
   end
+
 end
