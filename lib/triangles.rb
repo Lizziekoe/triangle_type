@@ -8,7 +8,16 @@ class Triangle
   define_method(:triangle_type) do
 
 
-    if (@side_a == @side_b).&(@side_a == @side_c).&(@side_b==@side_c)
+    if (@side_a.+(@side_b)).<(@side_c)
+      return "invalid triangle dimensions"
+
+    elsif (@side_b.+(@side_c)).<(@side_a)
+      return "invalid triangle dimensions"
+
+    elsif (@side_a.+(@side_c)).<(@side_b)
+      return "invalid triangle dimensions"
+
+    elsif (@side_a == @side_b).&(@side_a == @side_c).&(@side_b==@side_c)
       return "equilateral"
 
     elsif (@side_a != @side_b).&(@side_a != @side_c).&(@side_b != @side_c)
